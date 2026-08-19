@@ -1,0 +1,10 @@
+# dsh-locale-ru bundle layer.
+#
+# Inserts one roster row: the package declares `dsh.client` (platform: web),
+# so the dsh-client-modules node half serves lib/client.js as a browser plugin
+# at /plugins/dsh-locale-ru/client.js. The row's `id` is the composition id;
+# its `name` (the package) is what both the host Loader and the client module
+# scanner key on.
+- insert:
+    - id: locale-ru
+      name: 'dsh-locale-ru'
