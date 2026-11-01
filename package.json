@@ -1,7 +1,7 @@
 {
   "name": "dsh-locale-ru",
-  "version": "0.2.0",
-  "description": "Russian (ru) locale plugin for DeepSeek Harness — translates the Web UI, DSH Desktop, and the Community Plugin Market, and auto-activates for Russian browsers.",
+  "version": "0.3.0",
+  "description": "Russian (ru) locale plugin for DeepSeek Harness — full translation of the Web UI (64 official namespaces, 2909 strings) plus the community plugin market; auto-activates for Russian browsers.",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -43,13 +43,11 @@
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "inject": [
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-runtime",
-        "@deepseek-ai/dsh-client-ui-settings"
-      ],
       "platform": "web",
       "immediately": true
     }
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.5"
   }
 }
