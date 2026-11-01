@@ -2,7 +2,7 @@
 
 Русская локализация (ru) для [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) — переводит веб-интерфейс, клиент [DSH Desktop](https://github.com/anywhere-labs/deepseek-harness-desktop) и магазин плагинов сообщества (dsh-community-market). Автоматически активируется для браузеров на русском языке.
 
-English summary: a Russian (ru) locale plugin for DeepSeek Harness. Registers ru dictionaries for every locale namespace shipped by the official UI packages (plus the community plugin market), adds «Русский» to the language selector, and auto-activates for Russian-language browsers. Built after the example of [dsh-locale-ptbr](https://github.com/negriniainda/dsh-locale-ptbr).
+English summary: a Russian (ru) locale plugin for DeepSeek Harness. Registers ru dictionaries for all locale namespaces shipped by the official UI packages (plus the community plugin market), adds «Русский» to the language selector, and auto-activates for Russian-language browsers.
 
 ## Поддерживаемая версия
 
@@ -13,9 +13,14 @@ DSH **0.2.1-rc.5 и новее**. Плагин использует публич
 
 ## Что переводится
 
-- **849 строк в 30 пространствах имён**: сессии и рабочие пространства, настройки (модели, плагины, пресеты агента, тема, разрешения), диалог разговора и инструменты, субагенты, воркфлоу, траектория, задачи, скиллы, цели
-- **Уведомление о бета-тестировании** и диалог выбора папки рабочего пространства
-- **Магазин плагинов сообщества** (вкладка «Магазин плагинов» в Настройки → Плагины): обзор каталога, источники, установка/удаление/отключение/включение плагинов, диалоги подтверждения
+- **2909 строк в 64 пространствах имён официального UI** (100% английских словарей
+  DSH 0.2.1-rc.5): чат и разговор, боковые панели, настройки (модели, провайдеры,
+  плагины, пресеты агента, тема, разрешения, веб-поиск, субагенты), цели и задания,
+  расписания, траектория, инструменты, субагенты, команда агентов, воркфлоу, скиллы,
+  инспектор сессий, просмотр документов/изображений/PDF/Office/Excel в боковой панели, голосовой ввод
+- **141 строка для магазина плагинов сообщества** (dsh-community-market): каталог,
+  источники, установка/удаление/включение плагинов, диалоги подтверждения
+- Полная таблица «английский оригинал → русский перевод» для ревью: [STRINGS.md](STRINGS.md)
 
 ## Как это работает
 
@@ -52,7 +57,13 @@ dsh plugin --profile web add /путь/к/dsh-locale-ru
 
 - `lib/dicts.js` — единственный источник переводов (обычный ESM, редактируется напрямую).
 - `npm run build` генерирует `lib/client.js` — браузерный бандл, который инлайнит словари.
-- `STRINGS.md` — полная таблица «английский оригинал → русский перевод» для ревью.
+  CI проверяет, что закоммиченный бандл совпадает с результатом сборки.
+- `STRINGS.md` — полная таблица «английский оригинал → русский перевод» для ревью,
+  сгенерирована из DSH 0.2.1-rc.5.
+
+## Благодарности
+
+Проект изначально вдохновлён [dsh-locale-ptbr](https://github.com/negriniainda/dsh-locale-ptbr).
 
 ## Лицензия
 

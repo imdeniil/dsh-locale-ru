@@ -1,0 +1,20 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Rebuild the browser bundle
+        run: node scripts/build.mjs
+      - name: Bundle matches lib/dicts.js
+        run: git diff --exit-code lib/client.js
+      - name: Bundle syntax
+        run: node --check lib/client.js
